@@ -1,0 +1,109 @@
+/* btn-cus-primary */
+.btn-cus-primary {
+    border-radius: 30px; /* Bo góc */
+    background-color: rgb(87, 55, 228); /* Màu tím (primary) */
+    padding: 10px 20px; /* Padding cho nút */
+    font-weight: 600;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none; /* Loại bỏ viền nếu cần */
+    text-decoration: none; /* Xóa dấu gạch dưới */
+    transition: background-color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+}
+
+.btn-cus-primary:hover {
+    background-color: rgb(11, 24, 59); /* Màu khi hover */
+    color: white; /* Đảm bảo màu chữ không bị thay đổi */
+    text-decoration: none; /* Xóa dấu gạch dưới */
+
+}
+
+/* btn-cus-danger */
+.btn-cus-danger {
+    border-radius: 30px; /* Bo góc */
+    background-color: rgb(220, 53, 69); /* Màu đỏ (danger) */
+    padding: 10px 20px; /* Padding cho nút */
+    font-weight: 600;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none; /* Loại bỏ viền nếu cần */
+    text-decoration: none; /* Xóa dấu gạch dưới */
+    transition: background-color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+}
+
+.btn-cus-danger:hover {
+    background-color: rgb(185, 41, 53); /* Màu đỏ đậm hơn khi hover */
+    color: white; /* Đảm bảo màu chữ không bị thay đổi */
+    text-decoration: none; /* Xóa dấu gạch dưới */
+
+}
+
+/* btn-cus-warning */
+.btn-cus-warning {
+    border-radius: 30px; /* Bo góc */
+    background-color: rgb(255, 165, 0); /* Màu cam (warning) */
+    padding: 10px 20px; /* Padding cho nút */
+    font-weight: 600;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none; /* Loại bỏ viền nếu cần */
+    text-decoration: none; /* Xóa dấu gạch dưới */
+    transition: background-color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+}
+
+.btn-cus-warning:hover {
+    background-color: rgb(255, 140, 0); /* Màu cam đậm hơn khi hover */
+    color: white; /* Đảm bảo màu chữ không bị thay đổi */
+    text-decoration: none; /* Xóa dấu gạch dưới */
+
+}
+
+/* btn-cus-success */
+.btn-cus-success {
+    border-radius: 30px; /* Bo góc */
+    background-color: rgb(40, 167, 69); /* Màu xanh lá (success) */
+    padding: 10px 20px; /* Padding cho nút */
+    font-weight: 600;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none; /* Loại bỏ viền nếu cần */
+    text-decoration: none; /* Xóa dấu gạch dưới */
+    transition: background-color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+}
+
+.btn-cus-success:hover {
+    background-color: rgb(28, 137, 56); /* Màu xanh lá đậm hơn khi hover */
+    color: white; /* Đảm bảo màu chữ không bị thay đổi */
+    text-decoration: none; /* Xóa dấu gạch dưới */
+
+}
+
+/* btn-cus-info */
+.btn-cus-info {
+    border-radius: 30px; /* Bo góc */
+    background-color: rgb(23, 162, 184); /* Màu xanh dương (info) */
+    padding: 10px 20px; /* Padding cho nút */
+    font-weight: 600;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none; /* Loại bỏ viền nếu cần */
+    text-decoration: none; /* Xóa dấu gạch dưới */
+    transition: background-color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+}
+
+.btn-cus-info:hover {
+    background-color: rgb(19, 141, 160); /* Màu xanh dương đậm hơn khi hover */
+    color: white; /* Đảm bảo màu chữ không bị thay đổi */
+    text-decoration: none; /* Xóa dấu gạch dưới */
+
+}
