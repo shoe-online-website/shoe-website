@@ -145,7 +145,7 @@
                     'category_id': categoriesSelect.value,
                     'status': statusSelect.value
                 };
-                const response = await fetch(`/admin/products/search/`, {
+                const response = await fetch(`/admin/products/search`, {
                     method: "POST",
                     headers: {
                         "X-CSRF-TOKEN" : token,
@@ -238,7 +238,7 @@
                 return await response.json();
             }     
             const productSizesModal = async (id) => {
-                const response = await fetch(`/admin/products/productSizes/`, {
+                const response = await fetch(`/admin/products/productSizes`, {
                     method: "POST",
                     headers: {
                         "X-CSRF-TOKEN": token,

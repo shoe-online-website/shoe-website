@@ -20,8 +20,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     public function deleteProductsSize($product) {
         return $product->sizes()->detach();
     }
-    public function sortSizesByNumber($product)
-    {
+    public function sortSizesByNumber($product){
         return $product->sizes()->orderBy('size_number', 'asc')->get();
     }
     public function search($inputData){
@@ -125,6 +124,12 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
             ->latest('created_at')
             ->orderBy('name', 'desc')
             ->paginate($limit);
+    }
+    public function getProductByCode($code) {
+        return $this->model->where('code', $code)->first();
+    }
+    public function getProductByName($name) {
+        return $this->model->where('name', $name)->first();
     }
 
 }

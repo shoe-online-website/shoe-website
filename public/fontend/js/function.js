@@ -79,11 +79,11 @@ const formatPrice = (price) => {
 };
 
 // Hàm cập nhật số lượng
-const updateQuantity = async (cartId, currentPrice, delta) => {
+const updateQuantity = async (cartId, currentPrice, delta, maxQuantity) => {
     const qtyInput = document.querySelector(`#qty${cartId}`);
     const currentQuantity = parseInt(qtyInput.value) + delta;
 
-    if (currentQuantity <= 0) return;
+    if (currentQuantity <= 0 || currentQuantity > maxQuantity) return;
 
     // Cập nhật số lượng trên giao diện trước khi gửi AJAX
     qtyInput.value = currentQuantity;
@@ -127,10 +127,9 @@ const updateQuantityAjax = async (filters) => {
             body: JSON.stringify(filters),
         });
         const { success, errors, cart } = await response.json();
-        if (!success) throw new Error(errors || "Cập nhật thất bại, vui lòng thử lại");
+        if (!success) throw new Error(errors);
         return cart; // Trả về dữ liệu giỏ hàng từ server
     } catch (error) {
-        alert(error.message);
         return null; // Trả về null nếu có lỗi
     }
 };
@@ -141,15 +140,35 @@ if (cartForm && productSizeElement) {
     const inputSizeElements = productSizeElement.querySelectorAll("input");
     inputSizeElements[0].checked = true;
     let sizeNumberDefault = inputSizeElements[0].dataset.id;
+    let maxQuantityCurrentSize = inputSizeElements[0].getAttribute('maxlength');
     const productId = cartForm.querySelector("#productId").value;
-    const quantity = document.querySelector('#qty');
+    const quantityElement = cartForm.querySelector('#qty');
+    let quantity = 1;
+    const addButton = cartForm.querySelector('.add');
+    const subButton = cartForm.querySelector('.sub');
     inputSizeElements.forEach((element) => {
         element.addEventListener("click", (e) => {
             inputSizeElements.forEach((input) => input.checked = false);
             e.target.checked = true;
             sizeNumberDefault = element.dataset.id;
+            maxQuantityCurrentSize = element.getAttribute('maxlength');
+            quantity = 1;
+            quantityElement.value = quantity;
         });
     });
+    addButton.addEventListener('click', (e) => {
+        if(quantity < maxQuantityCurrentSize) {
+            quantity++;
+            quantityElement.value = quantity;
+        }
+    });
+    subButton.addEventListener('click', (e) => {
+        if(quantity > 1) {
+            quantity--;
+            quantityElement.value = quantity;
+        }
+    });
+
 
     buttonCartElements.forEach((element) => {
         element.addEventListener("click", (e) => {
@@ -159,7 +178,8 @@ if (cartForm && productSizeElement) {
                 'id': productId,
                 'size_number': sizeNumberDefault,
                 'cartId': cartId,
-                'quantity': quantity.value,
+                'quantity': quantityElement.value,
+                'maxQuantity': maxQuantityCurrentSize,
             }
             const addToCartAjax = async (filters) => {
                 try {

@@ -7,7 +7,7 @@
               <ol class="breadcrumb breadcrumb-light d-flex justify-content-center justify-content-lg-start" itemscope="" itemtype="http://schema.org/BreadcrumbList">
                 <li class="breadcrumb-item text-nowrap" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
                   <a itemprop="item" href="#">
-                    <span itemprop="name"><i class="fa-light fa-house"></i> Home</span>
+                    <span itemprop="name"><i class="fa-light fa-house"></i> Trang chủ</span>
                   </a>
                   <meta itemprop="position" content="1">
                 </li>

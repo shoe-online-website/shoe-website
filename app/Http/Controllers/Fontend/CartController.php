@@ -42,6 +42,7 @@ class CartController extends Controller
                     'code' => $product->code,
                     'quantity' => $request->quantity,
                     'size_number' => $request->size_number,
+                    'maxQuantity' => $request->maxQuantity,
                 ];
             }else{
                 $cart[$cartId]['quantity'] += $request->quantity;

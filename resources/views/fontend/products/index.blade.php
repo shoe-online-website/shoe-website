@@ -10,7 +10,7 @@
         <div class="row" style="transform: none;">
             <div class="col-lg-9 col-md-9 col-12">
                 <div class="row g-3">
-                    @if (!empty($products))
+                    @if (count($products) > 0)
                         @foreach ($products as $product)
                             {{-- begin-item-product --}}
                             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6 itemPro">
@@ -58,6 +58,12 @@
                             </div>       
                             {{-- end-item-product --}}   
                         @endforeach
+                    @else
+                        <div class="col-12">
+                            <div class="alert alert-info text-center">
+                                Không có sản phẩm nào. Vui lòng quay lại sau.
+                            </div>
+                        </div>
                     @endif
                 </div>
             </div>

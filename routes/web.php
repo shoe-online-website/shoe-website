@@ -50,6 +50,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Backend'], function () {
             Route::delete('delete/{productId}', 'ProductController@delete');
             Route::post('search', 'ProductController@search');
             Route::post('productSizes', 'ProductController@getProductSizes');
+            Route::post('check-code', 'ProductController@checkCode');
         });
         //User
         Route::prefix('users')->group(function() {

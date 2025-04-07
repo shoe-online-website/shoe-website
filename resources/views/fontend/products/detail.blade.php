@@ -58,7 +58,7 @@
                     @endif
                   <div class="block_phone">
                     <span class="text">Liên hệ: </span>
-                    <a title="Tư vấn &amp; đặt hàng: 0909300746" href="tel:0909300746">0909300746</a>
+                    <a title="Tư vấn &amp; đặt hàng: 0123456789" href="tel:0123456789">0123456789</a>
                     ( Tư vấn Miễn phí )
                   </div>
                 </div>

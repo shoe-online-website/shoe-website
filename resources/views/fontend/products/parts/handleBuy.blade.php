@@ -5,16 +5,24 @@
             <div class="col-12">
                 <div class="list-attribute-in">
                     <ul class="wapper_cb size d-flex flex-lg-wrap">
+                        @php $count = 0; @endphp
                         @foreach ($sizes as $size)
+                            @if($size->pivot->quantity > 0)
                             <li class="cb">
                                 <label for="radio{{$size->id}}{{$size->size_number}}">
                                 <input type="radio" data-id="{{$size->size_number}}" value="{{$size->size_number}}" 
-                                id="radio{{$size->id}}{{$size->size_number}}" name="radio{{$size->id}}" class="radio">
+                                id="radio{{$size->id}}{{$size->size_number}}" name="radio{{$size->id}}" class="radio"
+                                maxlength="{{$size->pivot->quantity}}" >
                                 <div class="rd_in">{{$size->size_number}}</div>
                                 </label>
                             </li>
                             <div class="clear"></div>
+                            @php $count++; @endphp
+                            @endif
                         @endforeach
+                        @if($count == 0)
+                            <p class="text-center" style="color: red; font-weight: bold;">Sản phẩm hiện đã hết hàng!</p>
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -24,6 +32,7 @@
 <form id="addToCart" method="post" accept-charset="UTF-8" 
     class="ProductForm mt-2 mt-lg-3 mb-4" enctype="multipart/form-data" onsubmit=" return false;">
     <input type="hidden" name="productId" id="productId" value="{{$product->id}}">
+    @if($count > 0)
     <div class="row align-items-center g-1">
         <div id="message-box" class="col-12"></div>
         <div class="col-12 col-md-auto col-auto mb-2 mb-md-0">
@@ -32,7 +41,7 @@
                     <div class="number_price d-flex justify-content-center">
                         <div class="custom">
                             <button class="reduced items-count sub" type="button">-</button>
-                            <input type="text" class="input-text qty" title="Qty" min="1" maxlength="12" id="qty" 
+                            <input type="text" class="input-text qty" title="Qty" min="1" id="qty" 
                                 name="quantity" value="1" readonly="">
                             <button class="increase items-count add" type="button">+</button>
                         </div>
@@ -50,6 +59,7 @@
             </button>
         </div>
     </div>
+    @endif
 </form>
 <div class="girdPro"></div>
 

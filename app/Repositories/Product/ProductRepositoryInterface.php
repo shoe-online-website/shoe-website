@@ -15,4 +15,6 @@ interface ProductRepositoryInterface extends RepositoryInterface{
     public function getRelatedProducts($productId, $categoryId);
     public function getNewProducts($categories);
     public function getProductsHome($limit = 1);
+    public function getProductByCode($code);
+    public function getProductByName($name);
 }

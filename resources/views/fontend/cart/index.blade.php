@@ -28,11 +28,13 @@
                       <p class="ps-product__category">Mã SP: <strong>{{$product['code']}}</strong></p>
                       <div class="number">
                         <div class="form-group--number">
-                          <button class="minus" onclick="return updateQuantity({{$product['cartId']}}, {{$product['priceDefalt']}} ,-1)" type="button">
+                          <button class="minus" 
+                          onclick="return updateQuantity({{$product['cartId']}}, {{$product['priceDefalt']}} ,-1, {{$product['maxQuantity']}} )" type="button">
                             <span>-</span>
                           </button>
                           <input type="text" name="tqty[{{$product['cartId']}}]" class="form-control" id="qty{{$product['cartId']}}" value="{{$product['quantity']}}">
-                          <button class="plus" onclick="return updateQuantity({{$product['cartId']}}, {{$product['priceDefalt']}}, 1)" type="button">
+                          <button class="plus" 
+                          onclick="return updateQuantity({{$product['cartId']}}, {{$product['priceDefalt']}}, 1, {{$product['maxQuantity']}} )" type="button">
                             <span>+</span>
                           </button>
                         </div>
@@ -64,7 +66,7 @@
                 </div>
                 <div class="col-auto col-12 d-flex justify-content-end">
                   <div class="buyNext mr-4">
-                    <a class="ps-btn" href="/">Mua tiếp<i class="ps-icon-next"></i></a>
+                    <a class="ps-btn" href="/san-pham">Mua tiếp<i class="ps-icon-next"></i></a>
                   </div>
                   <div class="buyNext">
                     <a class="ps-btn" href="/thong-tin-don-hang">Đặt hàng <i class="ps-icon-next"></i></a>

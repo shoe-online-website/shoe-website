@@ -29,7 +29,7 @@ function createCoupon() {
 function getSizes() {
     $sizeRepositoryInterface = app(SizeRepositoryInterface::class);
     return cache()->remember('search_sizes', now()->addHours(2), function () use ($sizeRepositoryInterface) {
-        return $sizeRepositoryInterface->getAll();
+        return $sizeRepositoryInterface->getAll()->sortBy('size_number');
     }) ?: false;
 }
 function getCategory() {

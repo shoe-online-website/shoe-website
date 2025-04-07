@@ -34,6 +34,10 @@ class ProductController extends Controller
         return view('backend.products.add', compact('pageTitle', 'sizes', 'categories'));
     }
     public function store(Request $request) {
+        $productExist = $this->productRepo->getProductByCode($request->code);
+        if($productExist) {
+            return back()->withInput()->with('msg', 'Mã sản phẩm đã tồn tại!');
+        }
         $product = $this->productRepo->create([
             'name' => $request->name,
             'slug' => $request->slug,
@@ -47,8 +51,10 @@ class ProductController extends Controller
             'status' => $request->status,
             'description' => $request->description
         ]);
+        if(!$product) {
+            return back()->withInput()->with('msg', 'Thêm sản phẩm thất bại!');
+        }
         $sizes = [];
-
         foreach($request->sizes as $key => $id) {
             $sizes[$id] = [
                 'quantity' => $request->quantity[$key] ?? 0, 
@@ -112,7 +118,6 @@ class ProductController extends Controller
     
         return response()->json(['message' => 'Xóa thành công!'], 200);
     }
-    
     public function search(Request $request) {
         return ['products' => $this->productRepo->search($request->all())];
     }
@@ -129,6 +134,12 @@ class ProductController extends Controller
             'sizes' => $this->productRepo->sortSizesByNumber($product)
         ], 200);
     }
-
+    public function checkCode(Request $request) {
+        $productCodeExist = $this->productRepo->getProductByCode($request->code);
+        if($productCodeExist) {
+            return response()->json(['message' => 'Mã sản phẩm đã tồn tại!', 'success' => false], 500);
+        }
+        return response()->json(['success' => true], 200);
+    }
     
 }

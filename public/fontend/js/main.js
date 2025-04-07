@@ -332,7 +332,7 @@ jQuery('.back-top').click(function() {
 jQuery(document).ready(function(){
 	jQuery('#btnsearch').click(function(){
 		if(jQuery('#searchform').width()<170){
-			jQuery(this).html('<i class="fat fa-xmark btn-close-red" style="color:red;"></i>');
+			jQuery(this).html('<i class="ps-icon-search" style="color:red;"></i>');
 			jQuery(this).addClass('close');
 			jQuery(this).parents().find('.header').addClass('search-nav');  
 			jQuery('#searchform').addClass('widthFull');
@@ -354,16 +354,18 @@ jQuery(document).ready(function(){
 	
 	
 	//////////////Cart Pluss
-	$('.add').click(function () {
-		if ($(this).prev().val()) {
-			$(this).prev().val(+$(this).prev().val() + 1);
-		}
-	});
-	$('.sub').click(function () {
-		if ($(this).next().val() > 1) {
-			if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
-		}
-	});
+	// $('.add').click(function () {
+	// 	console.log('ok');
+		
+	// 	if ($(this).prev().val()) {
+	// 		$(this).prev().val(+$(this).prev().val() + 1);
+	// 	}
+	// });
+	// $('.sub').click(function () {
+	// 	if ($(this).next().val() > 1) {
+	// 		if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
+	// 	}
+	// });
 });
 
 function parseOptions(e){
