@@ -3,5 +3,5 @@ namespace App\Repositories\Size;
 
 use App\Repositories\RepositoryInterface;
 interface SizeRepositoryInterface extends RepositoryInterface{
-
+    public function getSizeBySizeNumber($sizeNumber);
 }

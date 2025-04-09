@@ -23,7 +23,7 @@ class Product extends Model
         'status',
     ];
     public function sizes() {
-        return $this->belongsToMany(Size::class, 'products_sizes')->withPivot('quantity');
+        return $this->belongsToMany(Size::class, 'products_sizes')->withPivot(['quantity', 'updated_at'])->withTimestamps();
     }
     public function category() {
         return $this->belongsTo(Category::class);

@@ -33,7 +33,7 @@
                                                 </a>
                                             </td>
                                             <td class="product-description">
-                                                <a href="https://kingshoes.vn/nike-journey-run-racer-hq4218-100-gia-tot-den-king-shoes.html"
+                                                <a href="/san-pham/chi-tiet/{{$item['slug']}}"
                                                     target="_blank">
                                                     <span
                                                         class="product-description-name order-summary-emphasis">{{$item['name']}}</span></a>
@@ -242,19 +242,4 @@
         </div>
     </div>
 </div>
-<script>
-(function() {
-    // Thêm state mới vào history
-    window.history.pushState(null, null, window.location.href);
-    window.onpopstate = function() {
-        window.location.href = '/gio-hang';
-    };
-    // Kiểm tra khi load trang
-    window.addEventListener('pageshow', function(event) {
-        if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
-            window.location.href = '/gio-hang';
-        }
-    });
-})();
-</script>
 @endsection

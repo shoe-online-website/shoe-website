@@ -199,18 +199,18 @@
                                                 <div class="blank-slate">
                                                     @php $priceEnd = $cartPro['sumPrice'] - $cartPro['coupon_value']  @endphp
                                                     <p>
-                                                        <img alt="Lazaten thanh toán" height="374"
-                                                            src="https://img.vietqr.io/image/acb-4319141-compact2.jpg?amount={{ $priceEnd }}&addInfo=thanh+toan+don+hang Lazaten"
-                                                            srcset="Lazaten thanh toán" width="615">
+                                                        <img alt="Thanh toán" height="374"
+                                                            src="https://img.vietqr.io/image/acb-4319141-compact2.jpg?amount={{ $priceEnd }}&addInfo=thanh+toan+don+hang"
+                                                            srcset="Thanh toán" width="615">
                                                     </p>
 
-                                                    <p><strong>Mua hàng trên website Lazaten:</strong></p>
+                                                    <p><strong>Mua hàng trên website</strong></p>
 
                                                     <p><strong>*Giao - Nhận:</strong></p>
 
-                                                    <p>Lazaten ship hàng toàn quốc COD - Kiểm tra hàng trực tiếp khi nhận hàng.</p>
+                                                    <p>Ship hàng toàn quốc COD - Kiểm tra hàng trực tiếp khi nhận hàng.</p>
                                                     <p><strong>Chúng tôi biết bạn có nhiều sự lựa chọn. Cảm ơn bạn đã
-                                                            chọn Lazaten.</strong></p>
+                                                            chọn.</strong></p>
                                                 </div>
                                             </div>
 
@@ -237,4 +237,19 @@
         </div>
     </div>
 </div>
+<script>
+(function() {
+    // Thêm state mới vào history
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function() {
+        window.location.href = '/gio-hang';
+    };
+    // Kiểm tra khi load trang
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+            window.location.href = '/gio-hang';
+        }
+    });
+})();
+</script>
 @endsection

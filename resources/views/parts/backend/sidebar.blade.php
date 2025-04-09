@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="/admin/">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -25,7 +25,11 @@
     <div class="sidebar-heading">
         Interface
     </div>
-
+    @include('parts.backend.menu_item', [
+        'name' => 'orders',
+        'title' => 'Đơn hàng',
+        'lists' => route('admin.orders.index'),
+    ])
     @include('parts.backend.menu_item', [
         'name' => 'users',
         'title' => 'Người dùng',

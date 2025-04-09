@@ -46,8 +46,7 @@
                         <option value="1">Đã ra mắt</option>
                     </select>
                 </th>
-                <th>Cập nhật</th>
-                <th>Xóa</th>
+                <th>Tùy chỉnh</th>
             </tr>
         </thead>
         <tbody class="text-center">
@@ -74,10 +73,8 @@
                             @endif
                         </td>
                         <td>
-                            <a href="{{route('admin.products.edit', $product->id)}}" class="btn-cus-warning edit-btn"><i class="fa fa-edit"></i></a>
-                        </td>
-                        <td> 
-                            <a href="#" class="btn-cus-danger delete-btn" data-id="{{$product->id}}"><i class="fa fa-trash"></i></a>
+                            <a href="{{route('admin.products.edit', $product->id)}}" class="btn-cus-warning edit-btn"><i class="fa fa-edit"></i></a><br>
+                            <a href="#" class="btn-cus-danger delete-btn mt-2" data-id="{{$product->id}}"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                 @endforeach
@@ -175,8 +172,7 @@
                     productHTML += item.status
                                 ? "<td><span class='badge bg-success' style='color: white'>Đã ra mắt</span></td>" 
                                 : "<td><span class='badge bg-warning' style='color: white'>Sắp ra mắt</span></td>";
-                    productHTML += "<td><a href='/admin/products/edit/" + item.id + "' class='btn-cus-warning edit-btn'><i class='fa fa-edit'></i></a></td>";
-                    productHTML += "<td><a href='' class='btn-cus-danger delete-btn' data-id='" + item.id + "'><i class='fa fa-trash'></i></a></td>";
+                    productHTML += "<td><a href='/admin/products/edit/" + item.id + "' class='btn-cus-warning edit-btn'><i class='fa fa-edit'></i></a></br><a href='' class='btn-cus-danger delete-btn mt-2' data-id='" + item.id + "'><i class='fa fa-trash'></i></a></td>";
                     productHTML += "</tr>";
                 });
                 productTable.querySelector('tbody').innerHTML = productHTML;

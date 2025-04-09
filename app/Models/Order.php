@@ -15,6 +15,7 @@ class Order extends Model
         'province',
         'district',
         'ward',
+        'address',
         'email',
         'note',
         'total',
@@ -23,8 +24,11 @@ class Order extends Model
         'order_status_id',
         'payment_complete_date',
     ];
+    protected $casts = [
+        'payment_complete_date' => 'datetime',
+    ];
     public function ordersStatus() {
-        return $this->belongsTo(OrdersStatus::class);
+        return $this->belongsTo(OrdersStatus::class, 'order_status_id');
     }
     public function orderDetail() {
         return $this->hasMany(OrdersDetail::class);

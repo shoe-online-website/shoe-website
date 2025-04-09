@@ -27,7 +27,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         return 
         $this->model
             ->when(($inputData['keyword'] != null), function ($query) use ($inputData) {
-                return $query->where('name', 'like', '%'.$inputData['keyword'].'%');
+                return $query->where('name', 'like', '%'.$inputData['keyword'].'%')->orWhere('code', 'like', '%'.$inputData['keyword'].'%');
             })
             ->when(($inputData['status'] != null), function ($query) use ($inputData) {
                 return $query->where('status', $inputData['status']);
@@ -131,5 +131,6 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     public function getProductByName($name) {
         return $this->model->where('name', $name)->first();
     }
+    
 
 }

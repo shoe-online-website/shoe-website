@@ -2,7 +2,7 @@
   <ul class="main-menu menu">
     @include('parts.fontend.header-navigation-item', [
     'name' => 'introduce',
-    'title' => 'Giới thiệu',
+    'title' => 'Trang chủ',
     'url' => '/',
     ])
     @include('parts.fontend.header-navigation-item', [
@@ -24,16 +24,6 @@
     'name' => 'yeezy',
     'title' => 'Yeezy',
     'url' => '/san-pham/yeezy',
-    ])
-    @include('parts.fontend.header-navigation-item', [
-    'name' => 'sale',
-    'title' => 'Sale',
-    'url' => '/',
-    ])
-    @include('parts.fontend.header-navigation-item', [
-    'name' => 'contact',
-    'title' => 'Liên hệ',
-    'url' => '/',
     ])
   </ul>
 </div>
@@ -83,16 +73,6 @@
           'name' => 'yeezy',
           'title' => 'Yeezy',
           'url' => '/san-pham/yeezy',
-          ])
-          @include('parts.fontend.header-navigation-item', [
-          'name' => 'sale',
-          'title' => 'Sale',
-          'url' => '/',
-          ])
-          @include('parts.fontend.header-navigation-item', [
-          'name' => 'contact',
-          'title' => 'Liên hệ',
-          'url' => '/',
           ])
         </ul>
       </div>

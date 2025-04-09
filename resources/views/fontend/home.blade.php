@@ -55,6 +55,5 @@
         </div>
     </div>
 </section>
-@include('parts.fontend.best_selling_products')
-@include('parts.fontend.promotion_products')
+@include('parts.fontend.best_selling_products', ['bestSeller' => $bestSeller])
 @endsection

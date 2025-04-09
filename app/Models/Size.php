@@ -13,6 +13,6 @@ class Size extends Model
         'size_number',
     ];
     public function products() {
-        return $this->belongsToMany(Product::class, 'products_sizes')->withPivot('quantity');
+        return $this->belongsToMany(Product::class, 'products_sizes')->withPivot(['quantity', 'updated_at'])->withTimestamps();
     }
 }

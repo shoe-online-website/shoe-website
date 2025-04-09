@@ -215,8 +215,7 @@ if(checkoutButton) {
         const paymentConfirm = async () => {
             try {
                 buttonText.innerHTML = 'Đang xử lý <i class="fa-solid fa-spinner"></i>';
-                
-                const response = await fetch(`/phuong-thuc-thanh-toan`, {
+                const response = await fetch('/phuong-thuc-thanh-toan', {
                     method: "POST",
                     headers: {
                         "X-CSRF-TOKEN" : token,
@@ -225,7 +224,9 @@ if(checkoutButton) {
                     },
                     body: JSON.stringify(),
                 });   
+                console.log(response);
                 const { success, message, errors, data } = await response.json();
+                
                 if(!success) {
                     throw Error(errors);
                 }
@@ -240,7 +241,7 @@ if(checkoutButton) {
                     window.location.href = '/';
                 });
             } catch (errors) {
-                console.log(errors.message);
+                console.log(errors);
             } finally {
                 buttonText.innerHTML = buttonTextInit;
             }

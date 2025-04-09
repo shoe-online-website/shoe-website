@@ -44,7 +44,9 @@ function resetModal() {
 }
 const nameInput = document.querySelector('#name');
 const slugInput = document.querySelector('#slug');
-nameInput.addEventListener('input', (e) => {
-    e.preventDefault();
-    slugInput.value = getSlug(e.target.value);
-});
+if(nameInput) {
+    nameInput.addEventListener('input', (e) => {
+        e.preventDefault();
+        slugInput.value = getSlug(e.target.value);
+    });
+}

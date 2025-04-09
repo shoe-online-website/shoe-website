@@ -63,6 +63,13 @@ Route::group(['namespace' => 'App\Http\Controllers\Backend'], function () {
             Route::delete('delete/{userId}', 'UserController@delete');
             Route::post('search', 'UserController@search');
         });
+        Route::prefix('orders')->group(function() {
+            Route::get('/', 'OrderController@index')->name('admin.orders.index');
+            Route::get('/orderDetail/{orderId}', 'OrderController@detail')->name('admin.orders.detail');
+            Route::post('/orderDetail/{orderId}', 'OrderController@update');
+            Route::post('search', 'OrderController@search');
+
+        });
     });
 });
 Route::group(['prefix' => 'filemanager', 'middleware' => ['web']], function () {

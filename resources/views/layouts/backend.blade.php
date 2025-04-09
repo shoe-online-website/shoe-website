@@ -121,9 +121,7 @@
         $('#lfm-file').filemanager('file');
         $('#lfm-video').filemanager('video');
         $('#lfm-document').filemanager('document');
-        //select2
-        // $("#category_id").select2({});
-        resetModal()
+        resetModal();
     </script>
 </body>
 </html>

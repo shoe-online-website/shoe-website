@@ -83,7 +83,6 @@ class CheckoutController extends Controller
                 'billing_email.max' => 'Email không được vượt quá 255 ký tự.',
             ]);
         try {
-            $clientId = $request->billing_address_phone;
             $client = session()->get('client', []);
             $client = [
                 'full_name' => $request->billing_address_full_name,
@@ -144,6 +143,7 @@ class CheckoutController extends Controller
                 'province' => $province->full_name,
                 'district' => $district->full_name,
                 'ward' => $ward->full_name,
+                'address' => $client['address'] ?? '',
                 'email' => $client['email'],
                 'note' => $client['note'],
                 'total' => $cartPro['sumPrice'],
@@ -155,8 +155,8 @@ class CheckoutController extends Controller
             if($cartPro['code']) {
                 $data['discount'] = $cartPro['coupon_value'];
                 $data['coupon_code'] = $cartPro['code'];
+                $data['total'] = $cartPro['sumPrice'] - $cartPro['coupon_value'];
             }
-            // dd($cart);
             $order = $this->orderRepo->create($data);
             if(!$order) {
                 throw new Exception('Create order failure', 400);
