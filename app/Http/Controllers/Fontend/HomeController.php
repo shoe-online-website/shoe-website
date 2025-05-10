@@ -18,6 +18,7 @@ class HomeController extends Controller
         $pageTitle = 'Trang chủ';
         $products = $this->productRepo->getProductsHome(24);
         $bestSeller = $this->orderRepo->getBestSeller();
+        // dd($bestSeller);
         return view('fontend.home', compact('pageTitle', 'products', 'bestSeller'));
     }
 

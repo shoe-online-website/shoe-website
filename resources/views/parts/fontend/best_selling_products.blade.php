@@ -49,7 +49,7 @@
                       </div>
                       <div class="ps-shoe__content">
                         <div class="ps-shoe__detail">
-                          <a class="ps-shoe__name" href="/san-pham/{{$item->slug}}">{{$item->name}}</a>
+                          <a class="ps-shoe__name" href="/san-pham/chi-tiet/{{$item->slug}}">{{$item->name}}</a>
                           <select class="ps-rating ps-shoe__rating">
                             <option value="1">1</option>
                             <option value="2">2</option>

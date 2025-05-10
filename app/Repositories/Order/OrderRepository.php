@@ -33,9 +33,11 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
                 'products.price',
                 'products.image',
                 'products.discount',
+                'products.slug',
+                'products.sale_price',
                 \DB::raw('SUM(orders_detail.quantity) as total_quantity')
             )
-            ->groupBy('products.id', 'products.name', 'products.price', 'products.image', 'products.discount')
+            ->groupBy('products.id', 'products.name', 'products.price', 'products.image', 'products.discount', 'products.slug', 'products.sale_price')
             ->orderBy('total_quantity', 'desc')
             ->take(10) // Lấy top 10 sản phẩm
             ->get();

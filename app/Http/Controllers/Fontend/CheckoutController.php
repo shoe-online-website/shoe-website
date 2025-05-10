@@ -123,19 +123,20 @@ class CheckoutController extends Controller
         
         return view('fontend.checkout.payment', compact('pageTitle', 'cart', 'cartPro', 'client'));
     }
-    public function confirm(Request $request) {
+    public function confirm() {
+
         try {
             $cart = session()->get('cart', []);
             $cartPro = session()->get('cartPro', []);
             $client = session()->get('client', []);
             if(empty($cart) || empty($cartPro) || empty($client)) {
-                throw new Exception('Lỗi không xác định', 400);
+                throw new Exception('Lỗi không xác định');
             }
             $province = $this->provinceRepo->getNameProvince($client['province']);
             $district = $this->districtRepo->getNameDistrict($client['district']);
             $ward = $this->wardRepo->getNameWard($client['ward']);
             if (!$province || !$district || !$ward) {
-                throw new Exception('Address failure', 400);
+                throw new Exception('Address failure');
             }
             $data = [
                 'name' => $client['full_name'],
@@ -148,7 +149,7 @@ class CheckoutController extends Controller
                 'note' => $client['note'],
                 'total' => $cartPro['sumPrice'],
                 'discount' => 0,
-                'coupon_code' => null,
+                'coupon_code' => '',
                 'order_status_id' => 1,
                 'payment_complete_date' => Carbon::now()
             ];
@@ -179,12 +180,11 @@ class CheckoutController extends Controller
                 'data' => $cart
             ], 200);
         } catch (\Exception $exception) {
-            $status = $exception->getCode();
             return response()->json([
                 'success' => false,
                 'message' => 'Verify success',
                 'errors' => $exception->getMessage()
-            ], $status ?? 500);
+            ], 500);
         }
     }
 

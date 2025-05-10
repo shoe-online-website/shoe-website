@@ -224,9 +224,8 @@ if(checkoutButton) {
                     },
                     body: JSON.stringify(),
                 });   
-                console.log(response);
-                const { success, message, errors, data } = await response.json();
-                
+                const { success, errors, data } = await response.json();
+                console.log(data);
                 if(!success) {
                     throw Error(errors);
                 }
@@ -246,6 +245,7 @@ if(checkoutButton) {
                 buttonText.innerHTML = buttonTextInit;
             }
         };  
+        
         paymentConfirm();
     })
 }
